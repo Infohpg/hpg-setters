@@ -7,63 +7,54 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root {
-  --bg:    #FFFFFF;
-  --bg2:   #F8FAFC;
-  --bg3:   #F1F5F9;
-  --brd:   #E2E8F0;
-  --tx:    #0F172A;
-  --txm:   #475569;
-  --txd:   #94A3B8;
-  --pri:   #1D4ED8;
-  --pril:  #DBEAFE;
-  --sky:   #0369A1;
-  --skyl:  #E0F2FE;
-  --grn:   #059669;
-  --grnl:  #D1FAE5;
-  --amb:   #0C2340;
-  --ambl:  #E8EDF5;
-  --vio:   #7C3AED;
-  --viol:  #EDE9FE;
-  --red:   #DC2626;
-  --redl:  #FEE2E2;
+  --bg:    #FFFFFF; --bg2:#F8FAFC; --bg3:#F1F5F9; --brd:#E2E8F0;
+  --tx:    #0F172A; --txm:#475569; --txd:#94A3B8;
+  --pri:   #1D4ED8; --pril:#DBEAFE;
+  --sky:   #0369A1; --skyl:#E0F2FE;
+  --grn:   #059669; --grnl:#D1FAE5;
+  --amb:   #0C2340; --ambl:#E8EDF5;
+  --vio:   #7C3AED; --viol:#EDE9FE;
+  --red:   #DC2626; --redl:#FEE2E2;
   --sdw:   0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
-  --r:     10px;
+  --r:10px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif;font-size:14px;line-height:1.5;}
 
-/* ── HEADER */
+/* HEADER */
 .hdr{background:var(--bg);border-bottom:1px solid var(--brd);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .hdr-l{display:flex;align-items:center;gap:14px;}
 .logo{background:linear-gradient(135deg,#0C2340,#1D4ED8);color:#fff;padding:6px 14px;border-radius:8px;font-size:11px;font-weight:800;letter-spacing:1.5px;}
 .hdr-title{font-size:16px;font-weight:700;}
 .hdr-sub{font-size:11px;color:var(--txm);}
-.hdr-r{display:flex;align-items:center;gap:10px;}
+.hdr-r{display:flex;align-items:center;gap:8px;}
 .badge{border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;}
 .badge-per{background:var(--pri);border:1px solid var(--pri);color:#fff;font-weight:700;}
 .badge-upd{background:var(--bg3);border:1px solid var(--brd);color:var(--txm);}
 .badge-day{background:var(--pril);border:1px solid #C7D2FE;color:var(--pri);}
+.btn-dl{background:var(--bg3);border:1px solid var(--brd);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--txm);cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .15s;}
+.btn-dl:hover{background:var(--amb);color:#fff;border-color:var(--amb);}
 
-/* ── TABS */
+/* TABS */
 .tabs{background:var(--bg);border-bottom:1px solid var(--brd);padding:0 28px;display:flex;}
 .tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--txm);padding:12px 18px;cursor:pointer;font-size:13px;font-weight:500;display:flex;align-items:center;gap:6px;transition:all .15s;}
 .tab:hover{color:var(--tx);}
 .tab.on{color:var(--pri);border-bottom-color:var(--pri);font-weight:600;}
 
-/* ── PANES */
+/* PANES */
 .pane{display:none;padding:24px 28px;max-width:1440px;margin:0 auto;}
 .pane.on{display:block;}
 
-/* ── SECTIONS */
+/* SECTIONS */
 .sec{margin-bottom:28px;}
 .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
 .sec-title{font-size:11px;font-weight:700;color:var(--txm);text-transform:uppercase;letter-spacing:.07em;}
 .sec-sub{font-size:11px;color:var(--txd);}
 
-/* ── CARD */
+/* CARD */
 .card{background:var(--bg);border:1px solid var(--brd);border-radius:var(--r);padding:20px;box-shadow:var(--sdw);}
 
-/* ── KPI ROW */
+/* KPI ROW */
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
 .kpi{background:var(--bg);border:1px solid var(--brd);border-radius:var(--r);padding:18px 20px;box-shadow:var(--sdw);position:relative;overflow:hidden;}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0;}
@@ -90,7 +81,24 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
 .prog-fill.vio{background:var(--vio);}
 .prog-label{font-size:10px;color:var(--txd);margin-top:4px;}
 
-/* ── TABLE */
+/* PACING SECTION */
+.pacing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.pacing-card{background:var(--bg);border:1px solid var(--brd);border-radius:var(--r);padding:20px;box-shadow:var(--sdw);}
+.pacing-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.pacing-label{font-size:10px;font-weight:700;color:var(--txm);text-transform:uppercase;letter-spacing:.06em;}
+.pacing-delta{font-size:12px;font-weight:700;padding:3px 9px;border-radius:12px;}
+.pacing-delta.up{background:var(--grnl);color:var(--grn);}
+.pacing-delta.dn{background:var(--redl);color:var(--red);}
+.pacing-delta.neu{background:var(--bg3);color:var(--txd);}
+.pacing-actual{font-size:32px;font-weight:800;line-height:1;}
+.pacing-sub{font-size:11px;color:var(--txm);margin-top:4px;margin-bottom:14px;}
+.pacing-bar-wrap{position:relative;height:10px;background:var(--bg3);border-radius:5px;overflow:visible;margin-bottom:6px;}
+.pacing-bar-fill{height:100%;border-radius:5px;transition:width .4s;}
+.pacing-marker{position:absolute;top:-4px;width:3px;height:18px;background:#94A3B8;border-radius:2px;transform:translateX(-50%);}
+.pacing-bar-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--txd);}
+.pacing-spark{height:70px;position:relative;margin-top:12px;}
+
+/* TABLE */
 .tbl{width:100%;border-collapse:collapse;}
 .tbl th{text-align:left;padding:9px 14px;font-size:11px;font-weight:600;color:var(--txm);text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--brd);background:var(--bg2);}
 .tbl td{padding:9px 14px;font-size:13px;border-bottom:1px solid var(--brd);color:var(--tx);}
@@ -100,7 +108,7 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
 .hi{color:var(--grn);font-weight:700;}
 .lo{color:var(--red);font-weight:700;}
 
-/* ── PODIUM */
+/* PODIUM */
 .podium{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin-bottom:20px;}
 .pd-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
 .pd-block{width:90px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:8px;gap:4px;border-radius:8px 8px 0 0;}
@@ -111,31 +119,37 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
 .pd-name{font-size:12px;font-weight:600;color:var(--tx);}
 .pd-val{font-size:11px;color:var(--txm);}
 
-/* ── AVATAR */
+/* AVATAR */
 .av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
-.av-g{background:#059669;}
-.av-s{background:#0284C7;}
-.av-b{background:#7C3AED;}
-.av-p{background:#DB2777;}
-.av-t{background:#D97706;}
-.av-o{background:#0C2340;}
+.av-g{background:#059669;} .av-s{background:#0284C7;} .av-b{background:#7C3AED;}
+.av-p{background:#DB2777;} .av-t{background:#D97706;} .av-o{background:#0C2340;}
 
-/* ── PHASE BADGES */
+/* PHASE */
 .phase{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;}
 .ph-hero{background:#FEF3C7;color:#92400E;border:1px solid #FCD34D;}
 .ph-ldr{background:#DBEAFE;color:#1E40AF;border:1px solid #93C5FD;}
 .ph-rsc{background:#FEE2E2;color:#991B1B;border:1px solid #FCA5A5;}
 .ph-lsr{background:#F3F4F6;color:#4B5563;border:1px solid #D1D5DB;}
 
-/* ── HISTORICAL CHART */
-.hist-chart-wrap{height:260px;position:relative;margin-bottom:16px;}
+/* HISTORICAL CHART */
+.hist-chart-wrap{height:260px;position:relative;}
+.hist-chart-wrap-sm{height:200px;position:relative;}
 .metric-btns{display:flex;gap:8px;margin-bottom:14px;}
 .mbtn{background:var(--bg3);border:1px solid var(--brd);border-radius:6px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--txm);cursor:pointer;transition:all .15s;}
 .mbtn:hover{border-color:var(--pri);color:var(--pri);}
 .mbtn.on{background:var(--pri);border-color:var(--pri);color:#fff;}
 
-/* ── HIST TABLE */
-.hist-tbl-wrap{overflow-x:auto;margin-top:8px;}
+/* TEAM SPARKLINES */
+.spark-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.spark-card{background:var(--bg);border:1px solid var(--brd);border-radius:var(--r);padding:14px 16px;box-shadow:var(--sdw);}
+.spark-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
+.spark-val{font-size:20px;font-weight:800;line-height:1;margin-bottom:2px;}
+.spark-trend{font-size:10px;color:var(--txd);}
+.spark-canvas{height:60px;position:relative;margin-top:8px;}
+.spark-canvas canvas{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}
+
+/* HIST TABLE */
+.hist-tbl-wrap{overflow-x:auto;}
 .hist-tbl{width:100%;border-collapse:collapse;font-size:12px;}
 .hist-tbl th{padding:7px 12px;font-size:10px;font-weight:700;color:var(--txm);text-transform:uppercase;letter-spacing:.04em;border-bottom:2px solid var(--brd);background:var(--bg2);white-space:nowrap;}
 .hist-tbl td{padding:7px 12px;border-bottom:1px solid var(--brd);white-space:nowrap;font-variant-numeric:tabular-nums;}
@@ -144,33 +158,43 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
 .hist-tbl td.best{background:#D1FAE5;color:#065F46;font-weight:700;border-radius:4px;}
 .hist-tbl .period-col{font-size:11px;font-weight:700;color:var(--txm);}
 
-/* ── PROGRESS BARS */
-.prog8{height:6px;background:var(--bg3);border-radius:3px;margin-top:8px;overflow:hidden;}
-.prog8-fill{height:100%;border-radius:3px;}
-
-/* ── GRID 2 COL */
+/* 2-COL */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+/* PRINT */
+@media print {
+  .hdr{position:static;}
+  .tabs{display:none!important;}
+  .hdr-r .btn-dl,.badge-upd{display:none!important;}
+  .pane{display:block!important;padding:16px 20px;}
+  body{background:#fff;}
+  .pane#t2{page-break-before:always;}
+  .sec{margin-bottom:20px;}
+  .card{box-shadow:none;border:1px solid #ddd;}
+  .hist-chart-wrap,.hist-chart-wrap-sm,.spark-canvas,.pacing-spark{height:auto!important;}
+}
 </style>
 </head>
 <body>
 
-<!-- ── HEADER -->
+<!-- HEADER -->
 <header class="hdr">
   <div class="hdr-l">
     <span class="logo">HPG</span>
     <div>
       <div class="hdr-title">Setters Dashboard</div>
-      <div class="hdr-sub">Rendimiento del equipo de ventas</div>
+      <div class="hdr-sub">Rendimiento del equipo de ventas · Período 15→14</div>
     </div>
   </div>
   <div class="hdr-r">
     <span class="badge badge-upd" id="badge-upd" style="display:none"></span>
     <span class="badge badge-day" id="badge-day">— / —</span>
     <span class="badge badge-per" id="badge-per">—</span>
+    <button class="btn-dl" onclick="downloadPDF()">⬇ Descargar PDF</button>
   </div>
 </header>
 
-<!-- ── TABS -->
+<!-- TABS -->
 <nav class="tabs">
   <button class="tab on" onclick="sw('t1',this)">👤 Período Actual</button>
   <button class="tab" onclick="sw('t2',this)">📈 Histórico</button>
@@ -189,7 +213,7 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
       <div class="kpi c-amb">
         <div class="kpi-top"><span class="kpi-label">Total Leads</span><span class="delta neu" id="kl-delta">—</span></div>
         <div class="kpi-val" id="kl-val">—</div>
-        <div class="kpi-proj" id="kl-proj">leads del período</div>
+        <div class="kpi-proj" id="kl-proj">leads asignados al equipo</div>
         <div class="kpi-prog"><div class="prog-track"><div class="prog-fill amb" id="kl-fill" style="width:0%"></div></div><div class="prog-label" id="kl-lbl">—</div></div>
       </div>
       <div class="kpi c-sky">
@@ -213,6 +237,65 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
     </div>
   </div>
 
+  <!-- PACING vs META -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <span class="sec-title">Pacing vs Meta — Período Actual</span>
+      <span class="sec-sub" id="pacing-sub">—</span>
+    </div>
+    <div class="pacing-grid">
+
+      <!-- Appts pacing -->
+      <div class="pacing-card">
+        <div class="pacing-hdr">
+          <span class="pacing-label" style="color:var(--pri)">Appts Confirmados</span>
+          <span class="pacing-delta neu" id="pdelta-a">—</span>
+        </div>
+        <div class="pacing-actual" style="color:var(--pri)" id="pval-a">—</div>
+        <div class="pacing-sub" id="psub-a">—</div>
+        <div class="pacing-bar-wrap">
+          <div class="pacing-bar-fill" style="background:var(--pri)" id="pfill-a"></div>
+          <div class="pacing-marker" id="pmark-a"></div>
+        </div>
+        <div class="pacing-bar-labels"><span>0</span><span id="pexp-a">Esp: —</span><span id="pmeta-a">Meta: —</span></div>
+        <div class="pacing-spark"><canvas id="pspark-a"></canvas></div>
+      </div>
+
+      <!-- Leads pacing -->
+      <div class="pacing-card">
+        <div class="pacing-hdr">
+          <span class="pacing-label" style="color:var(--amb)">Leads Asignados</span>
+          <span class="pacing-delta neu" id="pdelta-l">—</span>
+        </div>
+        <div class="pacing-actual" style="color:var(--amb)" id="pval-l">—</div>
+        <div class="pacing-sub" id="psub-l">—</div>
+        <div class="pacing-bar-wrap">
+          <div class="pacing-bar-fill" style="background:var(--amb)" id="pfill-l"></div>
+          <div class="pacing-marker" id="pmark-l"></div>
+        </div>
+        <div class="pacing-bar-labels"><span>0</span><span id="pexp-l">Esp: —</span><span id="pmeta-l">Meta: —</span></div>
+        <div class="pacing-spark"><canvas id="pspark-l"></canvas></div>
+      </div>
+
+      <!-- Deals pacing -->
+      <div class="pacing-card">
+        <div class="pacing-hdr">
+          <span class="pacing-label" style="color:var(--grn)">Deals Cerrados</span>
+          <span class="pacing-delta neu" id="pdelta-d">—</span>
+        </div>
+        <div class="pacing-actual" style="color:var(--grn)" id="pval-d">—</div>
+        <div class="pacing-sub" id="psub-d">—</div>
+        <div class="pacing-bar-wrap">
+          <div class="pacing-bar-fill" style="background:var(--grn)" id="pfill-d"></div>
+          <div class="pacing-marker" id="pmark-d"></div>
+        </div>
+        <div class="pacing-bar-labels"><span>0</span><span id="pexp-d">Esp: —</span><span id="pmeta-d">Meta: —</span></div>
+        <div class="pacing-spark"><canvas id="pspark-d"></canvas></div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- PODIUM -->
   <div class="sec">
     <div class="sec-hdr"><span class="sec-title">Top 3 del Período</span><span class="sec-sub">por Appts Confirmados</span></div>
@@ -226,16 +309,8 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
       <table class="tbl">
         <thead>
           <tr>
-            <th>Setter</th>
-            <th>Leads</th>
-            <th>Llamadas</th>
-            <th>Appts</th>
-            <th>Deals</th>
-            <th>Conv. L→A</th>
-            <th>Conv. A→D</th>
-            <th>Fase</th>
-            <th>Bono Est.</th>
-            <th>Meta E-Hero</th>
+            <th>Setter</th><th>Leads</th><th>Llamadas</th><th>Appts</th><th>Deals</th>
+            <th>Conv. L→A</th><th>Conv. A→D</th><th>Fase</th><th>Bono Est.</th><th>Meta E-Hero</th>
           </tr>
         </thead>
         <tbody id="setter-table"></tbody>
@@ -264,20 +339,64 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
 <!-- ══════════ TAB 2 — HISTÓRICO ══════════ -->
 <div id="t2" class="pane">
 
-  <!-- CHART HISTÓRICO POR SETTER -->
+  <!-- EVOLUCIÓN POR SETTER + LLAMADAS (2 columnas) -->
   <div class="sec">
     <div class="sec-hdr">
       <span class="sec-title">Evolución por Setter</span>
       <span class="sec-sub">Todos los períodos 15→14</span>
     </div>
-    <div class="card">
-      <div class="metric-btns">
-        <button class="mbtn on" onclick="setMetric('appts',this)">Appts</button>
-        <button class="mbtn" onclick="setMetric('leads',this)">Leads</button>
-        <button class="mbtn" onclick="setMetric('calls',this)">Llamadas</button>
-        <button class="mbtn" onclick="setMetric('deals',this)">Deals</button>
+    <div class="grid2">
+
+      <!-- Chart 1: con selector de métrica -->
+      <div class="card">
+        <div class="metric-btns">
+          <button class="mbtn on" onclick="setMetric('appts',this)">Appts</button>
+          <button class="mbtn" onclick="setMetric('leads',this)">Leads</button>
+          <button class="mbtn" onclick="setMetric('deals',this)">Deals</button>
+        </div>
+        <div class="hist-chart-wrap"><canvas id="hist-chart"></canvas></div>
       </div>
-      <div class="hist-chart-wrap"><canvas id="hist-chart"></canvas></div>
+
+      <!-- Chart 2: Llamadas (siempre visible) -->
+      <div class="card">
+        <div style="font-size:10px;font-weight:700;color:var(--sky);text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;">Llamadas Outbound por Mes</div>
+        <div class="hist-chart-wrap"><canvas id="calls-chart"></canvas></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TENDENCIA DEL EQUIPO — sparklines de totales -->
+  <div class="sec">
+    <div class="sec-hdr">
+      <span class="sec-title">Tendencia del Equipo (Totales)</span>
+      <span class="sec-sub">Suma de todos los setters por período</span>
+    </div>
+    <div class="spark-row">
+      <div class="spark-card">
+        <div class="spark-label" style="color:var(--amb)">Leads</div>
+        <div class="spark-val" id="team-leads-val">—</div>
+        <div class="spark-trend" id="team-leads-trend">—</div>
+        <div class="spark-canvas"><canvas id="tsp-leads"></canvas></div>
+      </div>
+      <div class="spark-card">
+        <div class="spark-label" style="color:var(--sky)">Llamadas</div>
+        <div class="spark-val" id="team-calls-val">—</div>
+        <div class="spark-trend" id="team-calls-trend">—</div>
+        <div class="spark-canvas"><canvas id="tsp-calls"></canvas></div>
+      </div>
+      <div class="spark-card">
+        <div class="spark-label" style="color:var(--pri)">Appts</div>
+        <div class="spark-val" id="team-appts-val">—</div>
+        <div class="spark-trend" id="team-appts-trend">—</div>
+        <div class="spark-canvas"><canvas id="tsp-appts"></canvas></div>
+      </div>
+      <div class="spark-card">
+        <div class="spark-label" style="color:var(--grn)">Deals</div>
+        <div class="spark-val" id="team-deals-val">—</div>
+        <div class="spark-trend" id="team-deals-trend">—</div>
+        <div class="spark-canvas"><canvas id="tsp-deals"></canvas></div>
+      </div>
     </div>
   </div>
 
@@ -289,13 +408,13 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
     </div>
     <div class="card">
       <div class="metric-btns">
-        <button class="mbtn on" id="tbl-btn-appts" onclick="setMetric('appts',document.querySelector('.mbtn.on'));setTableMetric('appts',this)">Appts</button>
-        <button class="mbtn" id="tbl-btn-leads" onclick="setTableMetric('leads',this)">Leads</button>
-        <button class="mbtn" id="tbl-btn-calls" onclick="setTableMetric('calls',this)">Llamadas</button>
-        <button class="mbtn" id="tbl-btn-deals" onclick="setTableMetric('deals',this)">Deals</button>
+        <button class="mbtn on" onclick="setTableMetric('appts',this)">Appts</button>
+        <button class="mbtn" onclick="setTableMetric('leads',this)">Leads</button>
+        <button class="mbtn" onclick="setTableMetric('calls',this)">Llamadas</button>
+        <button class="mbtn" onclick="setTableMetric('deals',this)">Deals</button>
       </div>
       <div class="hist-tbl-wrap">
-        <table class="hist-tbl" id="hist-table">
+        <table class="hist-tbl">
           <thead id="hist-thead"></thead>
           <tbody id="hist-tbody"></tbody>
         </table>
@@ -303,14 +422,13 @@ body{background:var(--bg2);color:var(--tx);font-family:-apple-system,BlinkMacSys
     </div>
   </div>
 
-  <!-- RANKING HISTÓRICO — TOTAL ACUMULADO -->
+  <!-- RANKING HISTÓRICO -->
   <div class="sec">
     <div class="sec-hdr">
       <span class="sec-title">Ranking Acumulado (todos los períodos)</span>
-      <span class="sec-sub">Suma total histórica</span>
     </div>
     <div class="card">
-      <table class="tbl" id="ranking-table">
+      <table class="tbl">
         <thead>
           <tr><th>#</th><th>Setter</th><th>Total Leads</th><th>Total Llamadas</th><th>Total Appts</th><th>Total Deals</th><th>Conv. L→A</th></tr>
         </thead>
@@ -331,12 +449,16 @@ function sw(id, btn) {
   if (id === 't2' && !window._histInited) initHistTab();
 }
 
+// ── DOWNLOAD
+function downloadPDF() {
+  window.print();
+}
+
 // ── PERIOD HELPERS (15→14)
 function getPeriodKey(date) {
   const d = date.getDate(), mo = date.getMonth(), yr = date.getFullYear();
   if (d >= 15) return yr + '-' + String(mo + 1).padStart(2, '0');
-  const pMo = mo === 0 ? 12 : mo;
-  const pYr = mo === 0 ? yr - 1 : yr;
+  const pMo = mo === 0 ? 12 : mo, pYr = mo === 0 ? yr - 1 : yr;
   return pYr + '-' + String(pMo).padStart(2, '0');
 }
 function getDayInPeriod() {
@@ -345,275 +467,344 @@ function getDayInPeriod() {
   return (new Date(today.getFullYear(), today.getMonth(), 0).getDate() - 14) + d;
 }
 
-// ── ZERO → DASH helper
-function fmtNum(v) {
-  if (v === null || v === undefined || v === 0) return '—';
-  return typeof v === 'number' ? v.toLocaleString() : String(v);
-}
+// ── HELPERS
+function fmtNum(v) { return (!v || v === 0) ? '—' : (typeof v === 'number' ? v.toLocaleString() : String(v)); }
+function setEl(id, val) { const e = document.getElementById(id); if (e) e.textContent = val; }
+function setHtml(id, val) { const e = document.getElementById(id); if (e) e.innerHTML = val; }
+function setStyle(id, prop, val) { const e = document.getElementById(id); if (e) e.style[prop] = val; }
 
-// ── PHASE CALC
+// ── PHASE / BONUS
 const BNS = { pAL:5, pAH:7, hL:19, hH:29, cL:.008, cH:.01, avg:52381 };
 const MIN_CALLS_LEADER = 1800, MIN_CALLS_HERO = 2000;
-function getPhase(appts, calls, meta_expected) {
-  if (appts === 0 || (calls < MIN_CALLS_LEADER && appts < 10)) return {l:'E-LOSER',c:'ph-lsr'};
+function getPhase(appts, calls) {
+  if (!appts || (calls < MIN_CALLS_LEADER && appts < 10)) return {l:'E-LOSER',c:'ph-lsr'};
   if (appts < 10 || calls < MIN_CALLS_LEADER) return {l:'RESCUE-E1',c:'ph-rsc'};
   if (appts >= 20 && calls >= MIN_CALLS_HERO) return {l:'E-HERO ⭐',c:'ph-hero'};
   return {l:'E-LEADER',c:'ph-ldr'};
 }
 function calcBonus(s) {
-  const ph = getPhase(s.appts, s.calls, s.meta_expected);
+  const ph = getPhase(s.appts, s.calls);
   if (ph.c === 'ph-rsc' || ph.c === 'ph-lsr') return 0;
   const h = ph.c === 'ph-hero';
   return Math.round(s.appts*(h?BNS.pAH:BNS.pAL)+(s.hot||0)*(h?BNS.hH:BNS.hL)+(s.cold||0)*BNS.avg*(h?BNS.cH:BNS.cL));
 }
 
-// ── AVATAR MAP
-const AV_MAP = {
-  Oliver:'av-o', Silvia:'av-s', Emmanuel:'av-t', Pablo:'av-p', Daniela:'av-g', Alejandro:'av-b'
+const AV_MAP = { Oliver:'av-o',Silvia:'av-s',Emmanuel:'av-t',Pablo:'av-p',Daniela:'av-g',Alejandro:'av-b' };
+const SETTER_COLORS = {
+  Oliver:'#0C2340', Silvia:'#0284C7', Emmanuel:'#D97706',
+  Pablo:'#DB2777', Daniela:'#059669', Alejandro:'#7C3AED'
 };
+function rgba(name, a) {
+  const h = SETTER_COLORS[name]||'#475569';
+  const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
 
-// ── DATA STATE
-let SETTERS = [];
-let HIST = { periods: [], setters: {} }; // setters: {name: {leads:[],calls:[],appts:[],deals:[]}}
-let CURRENT_METRIC = 'appts';
-let TABLE_METRIC = 'appts';
-let histChartObj = null;
+// ── STATE
+let SETTERS = [], PERIOD = {}, HIST = {periods:[], setters:{}}, GOALS = {};
+let CURRENT_METRIC = 'appts', TABLE_METRIC = 'appts';
+let histChartObj = null, callsChartObj = null;
+const sparkCharts = {};
 
-// ── RENDER TAB 1 ──────────────────────────────────────────────────
+// ── TEAM TOTALS helper
+function teamTotals(metric) {
+  return (HIST.periods || []).map((_,i) =>
+    Object.values(HIST.setters).reduce((s,d) => s + ((d[metric]||[])[i]||0), 0)
+  );
+}
+
+// ══ TAB 1 RENDER ══════════════════════════════════════════════════
 function renderCurrentPeriod() {
-  // KPIs
-  const totalLeads  = SETTERS.reduce((s,x) => s + (x.leads||0), 0);
-  const totalCalls  = SETTERS.reduce((s,x) => s + (x.calls||0), 0);
-  const totalAppts  = SETTERS.reduce((s,x) => s + (x.appts||0), 0);
-  const totalDeals  = SETTERS.reduce((s,x) => s + (x.deals||0), 0);
+  const totalLeads = SETTERS.reduce((s,x)=>s+(x.leads||0),0);
+  const totalCalls = SETTERS.reduce((s,x)=>s+(x.calls||0),0);
+  const totalAppts = SETTERS.reduce((s,x)=>s+(x.appts||0),0);
+  const totalDeals = SETTERS.reduce((s,x)=>s+(x.deals||0),0);
 
-  document.getElementById('kl-val').textContent  = totalLeads  || '—';
-  document.getElementById('kc-val').textContent  = totalCalls  ? totalCalls.toLocaleString() : '—';
-  document.getElementById('ka-val').textContent  = totalAppts  || '—';
-  document.getElementById('kd-val').textContent  = totalDeals  || '—';
+  setEl('kl-val', totalLeads || '—');
+  setEl('kc-val', totalCalls ? totalCalls.toLocaleString() : '—');
+  setEl('ka-val', totalAppts || '—');
+  setEl('kd-val', totalDeals || '—');
 
-  if (totalLeads && totalAppts) {
-    const r = Math.round(totalAppts/totalLeads*100);
-    document.getElementById('ka-proj').textContent = r + '% conv. leads→appts';
-  }
-  if (totalAppts && totalDeals) {
-    const r = Math.round(totalDeals/totalAppts*100);
-    document.getElementById('kd-lbl').textContent = r + '% conv. appts→deals';
-  }
+  if (totalLeads && totalAppts)
+    setEl('ka-proj', Math.round(totalAppts/totalLeads*100) + '% conv. leads→appts');
+  if (totalAppts && totalDeals)
+    setEl('kd-lbl', Math.round(totalDeals/totalAppts*100) + '% conv. appts→deals');
 
-  // Progress bars vs meta
-  const metaAppts = SETTERS.reduce((s,x) => s + (x.meta_appts||20), 0);
+  const metaAppts = Math.max(60, SETTERS.reduce((s,x)=>s+(x.meta_appts||20),0));
   if (metaAppts) {
-    const pctA = Math.min(100, Math.round(totalAppts/metaAppts*100));
-    document.getElementById('ka-fill').style.width = pctA + '%';
-    document.getElementById('ka-lbl').textContent = totalAppts + ' / ' + metaAppts + ' meta (' + pctA + '%)';
+    const pA = Math.min(100, Math.round(totalAppts/metaAppts*100));
+    setStyle('ka-fill','width',pA+'%');
+    setEl('ka-lbl', totalAppts+' / '+metaAppts+' meta ('+pA+'%)');
   }
 
-  // Podium
   mkPodium();
-
-  // Table
   mkSetterTable();
+  renderPacing(totalLeads, totalAppts, totalDeals);
 }
 
 function mkPodium() {
-  const sorted = [...SETTERS].sort((a,b) => b.appts - a.appts);
+  const sorted = [...SETTERS].sort((a,b)=>b.appts-a.appts);
   const top3 = sorted.slice(0,3);
   if (!top3.length) return;
-  const order = top3.length >= 3 ? [1,0,2] : (top3.length === 2 ? [1,0] : [0]);
-  const heights = ['pd-2','pd-1','pd-3'];
-  const ranks = ['🥈','🥇','🥉'];
+  const order = top3.length>=3?[1,0,2]:top3.length===2?[1,0]:[0];
+  const hts = ['pd-2','pd-1','pd-3'], ranks = ['🥈','🥇','🥉'];
   let html = '';
-  order.forEach((idx, pos) => {
-    const s = top3[idx]; if (!s) return;
-    const ph = getPhase(s.appts, s.calls, s.meta_expected);
-    html += `<div class="pd-item">
-      <div class="${heights[pos]} pd-block"><span class="pd-rank">${ranks[pos]}</span></div>
-      <div class="pd-name">${s.name}</div>
-      <div class="pd-val">${s.appts} appts</div>
-      <span class="phase ${ph.c}">${ph.l}</span>
-    </div>`;
+  order.forEach((idx,pos) => {
+    const s=top3[idx]; if(!s)return;
+    const ph=getPhase(s.appts,s.calls);
+    html += `<div class="pd-item"><div class="${hts[pos]} pd-block"><span class="pd-rank">${ranks[pos]}</span></div><div class="pd-name">${s.name}</div><div class="pd-val">${s.appts} appts</div><span class="phase ${ph.c}">${ph.l}</span></div>`;
   });
   document.getElementById('podium').innerHTML = html;
 }
 
 function mkSetterTable() {
   const tbody = document.getElementById('setter-table');
-  const sorted = [...SETTERS].sort((a,b) => b.appts - a.appts);
+  const sorted = [...SETTERS].sort((a,b)=>b.appts-a.appts);
   tbody.innerHTML = sorted.map(s => {
-    const ph = getPhase(s.appts, s.calls, s.meta_expected);
-    const bonus = calcBonus(s);
-    const convLA = s.leads > 0 ? (s.appts/s.leads*100).toFixed(1)+'%' : '—';
-    const convAD = s.appts > 0 ? (s.deals/s.appts*100).toFixed(1)+'%' : '—';
-    const pct = Math.min(100, Math.round(s.appts/20*100));
-    const barColor = s.appts>20?'#059669':s.appts>=10?'#0EA5E9':'#94A3B8';
-    const av = AV_MAP[s.name] || 'av-b';
+    const ph=getPhase(s.appts,s.calls), bonus=calcBonus(s);
+    const convLA=s.leads>0?(s.appts/s.leads*100).toFixed(1)+'%':'—';
+    const convAD=s.appts>0?(s.deals/s.appts*100).toFixed(1)+'%':'—';
+    const pct=Math.min(100,Math.round(s.appts/20*100));
+    const bc=s.appts>20?'#059669':s.appts>=10?'#0EA5E9':'#94A3B8';
+    const av=AV_MAP[s.name]||'av-b';
     return `<tr>
-      <td><span style="display:inline-flex;align-items:center;gap:8px;">
-        <span class="av ${av}" style="width:28px;height:28px;font-size:11px;">${s.name.charAt(0)}</span>
-        <strong>${s.name}</strong>
-      </span></td>
+      <td><span style="display:inline-flex;align-items:center;gap:8px;"><span class="av ${av}" style="width:28px;height:28px;font-size:11px;">${s.name[0]}</span><strong>${s.name}</strong></span></td>
       <td class="num">${fmtNum(s.leads)}</td>
-      <td class="num">${s.calls > 0 ? s.calls.toLocaleString() : '—'}</td>
-      <td class="num ${s.appts>0?'hi':''}">${fmtNum(s.appts)}</td>
+      <td class="num">${s.calls?s.calls.toLocaleString():'—'}</td>
+      <td class="num ${s.appts?'hi':''}">${fmtNum(s.appts)}</td>
       <td class="num ${s.deals>0?'hi':'lo'}">${fmtNum(s.deals)}</td>
-      <td>${convLA}</td>
-      <td>${convAD}</td>
+      <td>${convLA}</td><td>${convAD}</td>
       <td><span class="phase ${ph.c}">${ph.l}</span></td>
       <td class="num ${bonus>0?'hi':''}">${bonus>0?'$'+bonus.toLocaleString():'—'}</td>
-      <td style="min-width:120px;">
-        <div style="height:5px;background:var(--bg3);border-radius:3px;margin-bottom:3px;overflow:hidden;">
-          <div style="height:100%;width:${pct}%;background:${barColor};border-radius:3px;"></div>
-        </div>
-        <div style="font-size:10px;color:var(--txd)">${s.appts}/20 (${pct}%)</div>
-      </td>
+      <td style="min-width:120px;"><div style="height:5px;background:var(--bg3);border-radius:3px;margin-bottom:3px;overflow:hidden;"><div style="height:100%;width:${pct}%;background:${bc};border-radius:3px;"></div></div><div style="font-size:10px;color:var(--txd)">${s.appts}/20 (${pct}%)</div></td>
     </tr>`;
   }).join('');
 }
 
-// ── RENDER TAB 2 ──────────────────────────────────────────────────
+// ── PACING SECTION
+function renderPacing(totalLeads, totalAppts, totalDeals) {
+  const day = PERIOD.day || getDayInPeriod();
+  const total = PERIOD.total_days || 30;
+  const pct = day / total;
+
+  // Goals: from GOALS or derived from meta_appts / history average
+  const metaAppts = Math.max(60, SETTERS.reduce((s,x)=>s+(x.meta_appts||20),0));
+  const histTeamAppts = teamTotals('appts').slice(0,-1); // exclude current
+  const histTeamLeads = teamTotals('leads').slice(0,-1);
+  const histTeamDeals = teamTotals('deals').slice(0,-1);
+
+  const avgAppts = histTeamAppts.length ? Math.round(histTeamAppts.reduce((a,b)=>a+b,0)/histTeamAppts.length) : metaAppts;
+  const avgLeads = histTeamLeads.length ? Math.round(histTeamLeads.reduce((a,b)=>a+b,0)/histTeamLeads.length) : 400;
+  const avgDeals = histTeamDeals.length ? Math.round(histTeamDeals.reduce((a,b)=>a+b,0)/histTeamDeals.length) : 8;
+
+  const metaLeads = GOALS.leads || avgLeads;
+  const metaDeals = GOALS.deals || avgDeals;
+  const metaA     = GOALS.appts || metaAppts;
+
+  renderPacingCard('a', totalAppts, metaA, pct, '#1D4ED8', teamTotals('appts'), HIST.periods);
+  renderPacingCard('l', totalLeads, metaLeads, pct, '#0C2340', teamTotals('leads'), HIST.periods);
+  renderPacingCard('d', totalDeals, metaDeals, pct, '#059669', teamTotals('deals'), HIST.periods);
+
+  setEl('pacing-sub', `Día ${day}/${total} · Se esperaba ${Math.round(pct*100)}% de la meta acumulado`);
+}
+
+function renderPacingCard(key, actual, meta, pct, color, histData, histLabels) {
+  const expected = Math.round(meta * pct);
+  const ahead = actual - expected;
+  const aheadPct = expected > 0 ? Math.round((actual - expected) / expected * 100) : 0;
+  const projected = pct > 0.05 ? Math.round(actual / pct) : null;
+
+  setEl('pval-'+key, actual || '—');
+  setEl('psub-'+key, `de ${expected} esperados · Meta: ${meta}${projected?` · Proyección: ${projected}`:''}`);
+  setEl('pexp-'+key, 'Esp: '+expected);
+  setEl('pmeta-'+key, 'Meta: '+meta);
+
+  const fillPct = meta > 0 ? Math.min(100, Math.round(actual/meta*100)) : 0;
+  const markPct = Math.min(100, Math.round(pct*100));
+  setStyle('pfill-'+key, 'width', fillPct+'%');
+  setStyle('pfill-'+key, 'background', color);
+  setStyle('pmark-'+key, 'left', markPct+'%');
+
+  const deltaEl = document.getElementById('pdelta-'+key);
+  if (deltaEl) {
+    const sign = ahead>=0?'↑':'↓';
+    deltaEl.textContent = sign+' '+(aheadPct>=0?'+':'')+aheadPct+'%';
+    deltaEl.className = 'pacing-delta '+(ahead>=0?'up':'dn');
+  }
+
+  // Mini sparkline (team total history, last 6 periods)
+  const spark = document.getElementById('pspark-'+key);
+  if (!spark) return;
+  const labels = (histLabels||[]).slice(-6);
+  const data   = (histData||[]).slice(-6);
+  if (sparkCharts['p'+key]) { sparkCharts['p'+key].destroy(); }
+  sparkCharts['p'+key] = new Chart(spark, {
+    type:'line',
+    data:{ labels, datasets:[{data, borderColor:color, backgroundColor:color+'22', fill:true,
+      tension:0.4, pointRadius:2, pointBackgroundColor:color, borderWidth:2}] },
+    options:{
+      responsive:true, maintainAspectRatio:false, animation:false,
+      plugins:{ legend:{display:false}, tooltip:{enabled:true, callbacks:{ title:c=>c[0].label, label:c=>' '+c.parsed.y }} },
+      scales:{
+        x:{display:true, grid:{display:false}, ticks:{color:'#94A3B8',font:{size:8},maxRotation:0}},
+        y:{display:false}
+      }
+    }
+  });
+}
+
+// ══ TAB 2 RENDER ══════════════════════════════════════════════════
 function initHistTab() {
   window._histInited = true;
   buildHistChart();
+  buildCallsChart();
+  buildTeamSparklines();
   buildHistTable(TABLE_METRIC);
   buildRanking();
 }
 
-const SETTER_COLORS = {
-  Oliver:    '#0C2340',
-  Silvia:    '#0284C7',
-  Emmanuel:  '#D97706',
-  Pablo:     '#DB2777',
-  Daniela:   '#059669',
-  Alejandro: '#7C3AED'
-};
-const SETTER_COLORS_ALPHA = (name, a) => {
-  const hex = SETTER_COLORS[name] || '#475569';
-  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
-  return `rgba(${r},${g},${b},${a})`;
-};
-
 function setMetric(metric, btn) {
   CURRENT_METRIC = metric;
-  document.querySelectorAll('.metric-btns .mbtn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('#t2 .card .metric-btns .mbtn').forEach(b=>b.classList.remove('on'));
   if (btn) btn.classList.add('on');
   buildHistChart();
 }
 
 function setTableMetric(metric, btn) {
   TABLE_METRIC = metric;
-  const labels = {appts:'Appts confirmados', leads:'Leads asignados', calls:'Llamadas outbound', deals:'Deals cerrados'};
-  const el = document.getElementById('hist-metric-label');
-  if (el) el.textContent = (labels[metric] || metric) + ' por período';
-  document.querySelectorAll('#t2 .sec .metric-btns .mbtn').forEach(b => b.classList.remove('on'));
+  const labels={appts:'Appts confirmados',leads:'Leads asignados',calls:'Llamadas outbound',deals:'Deals cerrados'};
+  setEl('hist-metric-label', (labels[metric]||metric)+' por período');
+  // Only update this section's buttons
+  const sec = document.querySelector('#t2 .sec:nth-child(3) .metric-btns');
+  if (sec) sec.querySelectorAll('.mbtn').forEach(b=>b.classList.remove('on'));
   if (btn) btn.classList.add('on');
   buildHistTable(metric);
 }
 
 function buildHistChart() {
-  const ctx = document.getElementById('hist-chart');
-  if (!ctx) return;
-  const periods = HIST.periods;
-  if (!periods || !periods.length) return;
-
-  const datasets = Object.entries(HIST.setters).map(([name, data]) => ({
-    label: name,
-    data: (data[CURRENT_METRIC] || []).map(v => v || 0),
-    backgroundColor: SETTER_COLORS_ALPHA(name, 0.75),
-    borderColor: SETTER_COLORS[name] || '#475569',
-    borderWidth: 1.5,
-    borderRadius: 4
+  const ctx = document.getElementById('hist-chart'); if(!ctx) return;
+  const periods = HIST.periods||[];
+  const datasets = Object.entries(HIST.setters).map(([name,data])=>({
+    label:name, data:(data[CURRENT_METRIC]||[]).map(v=>v||0),
+    backgroundColor:rgba(name,.75), borderColor:SETTER_COLORS[name]||'#475569',
+    borderWidth:1.5, borderRadius:4
   }));
-
-  if (histChartObj) { histChartObj.destroy(); histChartObj = null; }
-  histChartObj = new Chart(ctx, {
-    type: 'bar',
-    data: { labels: periods, datasets },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: false,
-      plugins: {
-        legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 16 } },
-        tooltip: {
-          mode: 'index',
-          intersect: false,
-          callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y }
-        }
-      },
-      scales: {
-        x: {
-          grid: { display: false },
-          ticks: { color: '#94A3B8', font: { size: 10 } }
-        },
-        y: {
-          grid: { color: '#F1F5F9' },
-          ticks: { color: '#94A3B8', font: { size: 10 } }
-        }
-      }
+  if (histChartObj) { histChartObj.destroy(); histChartObj=null; }
+  histChartObj = new Chart(ctx,{
+    type:'bar', data:{labels:periods, datasets},
+    options:{
+      responsive:true, maintainAspectRatio:false, animation:false,
+      plugins:{ legend:{position:'bottom',labels:{font:{size:11},padding:16}},
+        tooltip:{mode:'index',intersect:false, callbacks:{label:c=>' '+c.dataset.label+': '+c.parsed.y}} },
+      scales:{ x:{grid:{display:false},ticks:{color:'#94A3B8',font:{size:10}}},
+               y:{grid:{color:'#F1F5F9'},ticks:{color:'#94A3B8',font:{size:10}}} }
     }
   });
 }
 
+function buildCallsChart() {
+  const ctx = document.getElementById('calls-chart'); if(!ctx) return;
+  const periods = HIST.periods||[];
+  const datasets = Object.entries(HIST.setters)
+    .filter(([,d])=>(d.calls||[]).some(v=>v>0))
+    .map(([name,data])=>({
+      label:name, data:(data.calls||[]).map(v=>v||0),
+      backgroundColor:rgba(name,.75), borderColor:SETTER_COLORS[name]||'#475569',
+      borderWidth:1.5, borderRadius:4
+    }));
+  if (callsChartObj) { callsChartObj.destroy(); callsChartObj=null; }
+  callsChartObj = new Chart(ctx,{
+    type:'bar', data:{labels:periods, datasets},
+    options:{
+      responsive:true, maintainAspectRatio:false, animation:false,
+      plugins:{ legend:{position:'bottom',labels:{font:{size:11},padding:16}},
+        tooltip:{mode:'index',intersect:false, callbacks:{label:c=>' '+c.dataset.label+': '+(c.parsed.y?c.parsed.y.toLocaleString():'—')}} },
+      scales:{ x:{grid:{display:false},ticks:{color:'#94A3B8',font:{size:10}}},
+               y:{grid:{color:'#F1F5F9'},ticks:{color:'#94A3B8',font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(1)+'k':v}} }
+    }
+  });
+}
+
+function buildTeamSparklines() {
+  const configs = [
+    {key:'leads', color:'#0C2340', label:'team-leads'},
+    {key:'calls', color:'#0369A1', label:'team-calls'},
+    {key:'appts', color:'#1D4ED8', label:'team-appts'},
+    {key:'deals', color:'#059669', label:'team-deals'}
+  ];
+  const periods = HIST.periods||[];
+  configs.forEach(({key,color,label}) => {
+    const data = teamTotals(key);
+    const last = data[data.length-1]||0;
+    const prev = data[data.length-2]||0;
+    setEl(label+'-val', key==='calls'?(last?last.toLocaleString():'—'):fmtNum(last));
+    if (prev && last !== prev) {
+      const chg = Math.round((last-prev)/prev*100);
+      setEl(label+'-trend', (chg>=0?'▲ +':'▼ ')+chg+'% vs período anterior');
+    } else {
+      setEl(label+'-trend', '—');
+    }
+    const canvas = document.getElementById('tsp-'+key); if(!canvas) return;
+    if (sparkCharts['t'+key]) sparkCharts['t'+key].destroy();
+    sparkCharts['t'+key] = new Chart(canvas,{
+      type:'line',
+      data:{labels:periods, datasets:[{data, borderColor:color, backgroundColor:color+'22',
+        fill:true, tension:0.4, pointRadius:2, pointBackgroundColor:color, borderWidth:2}]},
+      options:{
+        responsive:true, maintainAspectRatio:false, animation:false,
+        plugins:{legend:{display:false}, tooltip:{enabled:true,callbacks:{title:c=>c[0].label,label:c=>' '+c.parsed.y}}},
+        scales:{
+          x:{display:true,grid:{display:false},ticks:{color:'#94A3B8',font:{size:7},maxRotation:0,autoSkip:true,maxTicksLimit:4}},
+          y:{display:false}
+        }
+      }
+    });
+  });
+}
+
 function buildHistTable(metric) {
-  const periods = HIST.periods;
+  const periods = HIST.periods||[];
   const setterNames = Object.keys(HIST.setters);
-  if (!periods || !periods.length || !setterNames.length) return;
+  if (!periods.length||!setterNames.length) return;
 
-  // Header: Período | Oliver | Silvia | ...
   const thead = document.getElementById('hist-thead');
-  thead.innerHTML = '<tr><th class="period-col">Período</th>' +
-    setterNames.map(n => `<th>${n}</th>`).join('') +
-    '<th>Total</th></tr>';
+  thead.innerHTML='<tr><th class="period-col">Período</th>'+setterNames.map(n=>`<th>${n}</th>`).join('')+'<th>Total</th></tr>';
 
-  // Find max per column for highlighting
   const maxByName = {};
-  setterNames.forEach(name => {
-    const vals = (HIST.setters[name][metric] || []).map(v => v||0);
-    maxByName[name] = Math.max(...vals);
+  setterNames.forEach(name=>{
+    const vals=(HIST.setters[name][metric]||[]).map(v=>v||0);
+    maxByName[name]=Math.max(...vals);
   });
 
-  // Rows: one per period (most recent first)
   const tbody = document.getElementById('hist-tbody');
-  const rows = [...periods].reverse().map((period, ri) => {
-    const actualIdx = periods.length - 1 - ri;
-    const cells = setterNames.map(name => {
-      const v = ((HIST.setters[name][metric] || [])[actualIdx]) || 0;
-      const isBest = v > 0 && v === maxByName[name];
-      return `<td class="${isBest?'best':''}">${v > 0 ? (metric==='calls'?v.toLocaleString():v) : '—'}</td>`;
+  const rows = [...periods].reverse().map((period,ri)=>{
+    const idx = periods.length-1-ri;
+    const cells = setterNames.map(name=>{
+      const v=((HIST.setters[name][metric]||[])[idx])||0;
+      const best=v>0&&v===maxByName[name];
+      return `<td class="${best?'best':''}">${v>0?(metric==='calls'?v.toLocaleString():v):'—'}</td>`;
     });
-    const total = setterNames.reduce((s,name) => s + (((HIST.setters[name][metric]||[])[actualIdx])||0), 0);
+    const total=setterNames.reduce((s,n)=>s+(((HIST.setters[n][metric]||[])[idx])||0),0);
     return `<tr><td class="period-col">${period}</td>${cells.join('')}<td class="num">${total>0?(metric==='calls'?total.toLocaleString():total):'—'}</td></tr>`;
   });
-  tbody.innerHTML = rows.join('');
+  tbody.innerHTML=rows.join('');
 }
 
 function buildRanking() {
   const setterNames = Object.keys(HIST.setters);
-  const totals = setterNames.map(name => {
-    const d = HIST.setters[name];
-    const sum = arr => (arr||[]).reduce((s,v)=>s+(v||0),0);
-    return {
-      name,
-      leads: sum(d.leads),
-      calls: sum(d.calls),
-      appts: sum(d.appts),
-      deals: sum(d.deals)
-    };
-  }).sort((a,b) => b.appts - a.appts);
+  const totals = setterNames.map(name=>{
+    const d=HIST.setters[name];
+    const sum=arr=>(arr||[]).reduce((s,v)=>s+(v||0),0);
+    return {name,leads:sum(d.leads),calls:sum(d.calls),appts:sum(d.appts),deals:sum(d.deals)};
+  }).sort((a,b)=>b.appts-a.appts);
 
-  const tbody = document.getElementById('ranking-tbody');
-  tbody.innerHTML = totals.map((s, i) => {
-    const convLA = s.leads > 0 ? (s.appts/s.leads*100).toFixed(1)+'%' : '—';
-    const medals = ['🥇','🥈','🥉'];
-    const rank = medals[i] || (i+1);
-    const av = AV_MAP[s.name] || 'av-b';
+  const medals=['🥇','🥈','🥉'];
+  document.getElementById('ranking-tbody').innerHTML=totals.map((s,i)=>{
+    const convLA=s.leads>0?(s.appts/s.leads*100).toFixed(1)+'%':'—';
+    const av=AV_MAP[s.name]||'av-b';
     return `<tr>
-      <td>${rank}</td>
-      <td><span style="display:inline-flex;align-items:center;gap:8px;">
-        <span class="av ${av}" style="width:24px;height:24px;font-size:10px;">${s.name.charAt(0)}</span>
-        <strong>${s.name}</strong>
-      </span></td>
+      <td>${medals[i]||i+1}</td>
+      <td><span style="display:inline-flex;align-items:center;gap:8px;"><span class="av ${av}" style="width:24px;height:24px;font-size:10px;">${s.name[0]}</span><strong>${s.name}</strong></span></td>
       <td class="num">${s.leads.toLocaleString()}</td>
       <td class="num">${s.calls.toLocaleString()}</td>
       <td class="num hi">${s.appts}</td>
@@ -623,71 +814,54 @@ function buildRanking() {
   }).join('');
 }
 
-// ── APPLY DATA FROM data.json ──────────────────────────────────────
+// ── APPLY DATA
 function applyData(d) {
-  // Period badges
   if (d.period) {
-    const { label, day, total_days, pct } = d.period;
-    const perEl = document.getElementById('badge-per');
-    const dayEl = document.getElementById('badge-day');
-    const subEl = document.getElementById('period-sub');
-    if (perEl) perEl.textContent = label || '—';
-    if (dayEl) dayEl.textContent = `Día ${day} / ${total_days || 31} · ${pct}%`;
-    if (subEl) subEl.textContent = label ? `${label} · Día ${day}/${total_days||31}` : '—';
+    PERIOD = d.period;
+    const {label,day,total_days,pct} = d.period;
+    setEl('badge-per', label||'—');
+    setEl('badge-day', `Día ${day} / ${total_days||30} · ${pct}%`);
+    setEl('period-sub', label ? `${label} · Día ${day}/${total_days||30}` : '—');
   }
-
-  // Updated badge
   if (d.updated) {
-    const el = document.getElementById('badge-upd');
-    if (el) { el.textContent = 'Act. ' + d.updated; el.style.display = 'inline-block'; }
+    const el=document.getElementById('badge-upd');
+    if(el){el.textContent='Act. '+d.updated;el.style.display='inline-block';}
   }
-
-  // Current setters
+  if (d.goals) GOALS = d.goals;
   if (d.setter_calls && d.setter_calls.length) {
-    SETTERS = d.setter_calls.map(s => ({
-      name: s.name,
-      leads: s.leads || 0,
-      calls: s.calls || 0,
-      appts: s.appts || 0,
-      deals: s.deals || 0,
-      meta: s.meta || 6600,
-      meta_expected: s.meta_expected || 0,
-      meta_appts: s.meta_appts || 20,
-      hot: s.hot || 0,
-      cold: s.cold || 0
+    SETTERS = d.setter_calls.map(s=>({
+      name:s.name, leads:s.leads||0, calls:s.calls||0, appts:s.appts||0,
+      deals:s.deals||0, meta:s.meta||6600, meta_appts:s.meta_appts||20, hot:s.hot||0, cold:s.cold||0
     }));
     renderCurrentPeriod();
   }
-
-  // History
   if (d.history && d.history.periods && d.history.setters) {
     HIST = d.history;
     if (window._histInited) {
-      buildHistChart();
-      buildHistTable(TABLE_METRIC);
-      buildRanking();
+      buildHistChart(); buildCallsChart(); buildTeamSparklines();
+      buildHistTable(TABLE_METRIC); buildRanking();
     }
   }
 }
 
-// ── LOAD data.json ─────────────────────────────────────────────────
+// ── LOAD data.json
 async function loadData() {
   try {
-    const r = await fetch('data.json?t=' + Date.now());
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const d = await r.json();
-    applyData(d);
+    const r = await fetch('data.json?t='+Date.now());
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    applyData(await r.json());
   } catch(e) {
-    console.warn('data.json no disponible, usando mock:', e.message);
+    console.warn('Usando mock:', e.message);
     applyData(MOCK_DATA);
   }
 }
 
-// ── MOCK DATA (fallback si no hay data.json) ───────────────────────
+// ── MOCK (fallback)
 const MOCK_DATA = {
-  updated: '2026-06-15 08:00',
-  period: { label: '15 junio – 14 julio 2026', day: 1, total_days: 30, pct: 3 },
-  setter_calls: [
+  updated:'2026-06-15 08:00',
+  period:{key:'2026-06',label:'15 junio – 14 julio 2026',short:'Jun-Jul',day:1,total_days:30,pct:3},
+  goals:{leads:400,appts:120,deals:10},
+  setter_calls:[
     {name:'Oliver',   leads:8,  calls:280,  appts:2, deals:0, meta:6600, meta_appts:20},
     {name:'Silvia',   leads:10, calls:340,  appts:3, deals:0, meta:6600, meta_appts:20},
     {name:'Emmanuel', leads:9,  calls:310,  appts:2, deals:1, meta:6600, meta_appts:20},
@@ -695,20 +869,19 @@ const MOCK_DATA = {
     {name:'Daniela',  leads:5,  calls:180,  appts:1, deals:0, meta:6600, meta_appts:20},
     {name:'Alejandro',leads:6,  calls:200,  appts:1, deals:0, meta:6600, meta_appts:20}
   ],
-  history: {
-    periods: ['Ene-Feb','Feb-Mar','Mar-Abr','Abr-May','May-Jun'],
-    setters: {
-      Oliver:    {leads:[42,45,40,43,47], calls:[1800,1900,1700,1850,1950], appts:[8,9,7,8,10], deals:[1,1,1,1,2]},
-      Silvia:    {leads:[48,52,50,55,58], calls:[2100,2200,2000,2150,2250], appts:[10,11,10,12,13], deals:[1,2,1,2,2]},
-      Emmanuel:  {leads:[44,47,42,48,50], calls:[1950,2000,1850,1980,2100], appts:[9,10,8,10,11], deals:[1,1,1,2,1]},
-      Pablo:     {leads:[38,40,36,41,43], calls:[1700,1750,1600,1720,1800], appts:[7,8,7,8,9], deals:[1,1,0,1,1]},
-      Daniela:   {leads:[25,28,22,30,32], calls:[1100,1200,1000,1250,1350], appts:[4,5,3,5,6], deals:[0,1,0,1,0]},
-      Alejandro: {leads:[28,30,25,32,35], calls:[1250,1300,1100,1350,1450], appts:[5,6,4,6,7], deals:[0,0,1,0,1]}
+  history:{
+    periods:['Ene-Feb','Feb-Mar','Mar-Abr','Abr-May','May-Jun'],
+    setters:{
+      Oliver:    {leads:[42,45,40,43,47],calls:[1800,1900,1700,1850,1950],appts:[8,9,7,8,10],deals:[1,1,1,1,2]},
+      Silvia:    {leads:[48,52,50,55,58],calls:[2100,2200,2000,2150,2250],appts:[10,11,10,12,13],deals:[1,2,1,2,2]},
+      Emmanuel:  {leads:[44,47,42,48,50],calls:[1950,2000,1850,1980,2100],appts:[9,10,8,10,11],deals:[1,1,1,2,1]},
+      Pablo:     {leads:[38,40,36,41,43],calls:[1700,1750,1600,1720,1800],appts:[7,8,7,8,9],deals:[1,1,0,1,1]},
+      Daniela:   {leads:[25,28,22,30,32],calls:[1100,1200,1000,1250,1350],appts:[4,5,3,5,6],deals:[0,1,0,1,0]},
+      Alejandro: {leads:[28,30,25,32,35],calls:[1250,1300,1100,1350,1450],appts:[5,6,4,6,7],deals:[0,0,1,0,1]}
     }
   }
 };
 
-// ── INIT ────────────────────────────────────────────────────────────
 loadData();
 </script>
 </body>
