@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-16 13:38",
+  "updated": "2026-06-16 14:08",
   "period": {
     "key": "2026-06",
     "label": "15 Junio 2026 \u2013 15 Julio 2026",
@@ -11,7 +11,7 @@
   "setter_calls": [
     {
       "name": "Oliver",
-      "leads": 1,
+      "leads": 2,
       "appts": 0,
       "deals": 0,
       "calls": 25,
@@ -20,7 +20,7 @@
     {
       "name": "Silvia",
       "leads": 0,
-      "appts": 1,
+      "appts": 0,
       "deals": 0,
       "calls": 442,
       "meta_appts": 20
@@ -28,7 +28,7 @@
     {
       "name": "Emmanuel",
       "leads": 5,
-      "appts": 1,
+      "appts": 0,
       "deals": 0,
       "calls": 157,
       "meta_appts": 20
@@ -37,7 +37,7 @@
       "name": "Pablo",
       "leads": 7,
       "appts": 0,
-      "deals": 1,
+      "deals": 0,
       "calls": 491,
       "meta_appts": 20
     },
@@ -75,7 +75,7 @@
           106,
           75,
           99,
-          1
+          2
         ],
         "appts": [
           0,
@@ -116,8 +116,8 @@
           0,
           2,
           20,
-          12,
-          1
+          13,
+          0
         ],
         "deals": [
           0,
@@ -148,10 +148,10 @@
         "appts": [
           0,
           0,
-          3,
-          16,
-          10,
-          1
+          4,
+          15,
+          11,
+          0
         ],
         "deals": [
           0,
@@ -192,8 +192,8 @@
           0,
           0,
           0,
-          0,
-          1
+          1,
+          0
         ],
         "calls": [
           0,
