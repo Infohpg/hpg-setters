@@ -1,12 +1,12 @@
 {
-  "updated": "2026-06-15 21:15",
+  "updated": "2026-06-16 08:48",
   "period": {
     "key": "2026-06",
     "label": "15 Junio 2026 ? 15 Julio 2026",
     "short": "Jun-Jul",
-    "day": 1,
+    "day": 2,
     "total_days": 30,
-    "pct": 3
+    "pct": 7
   },
   "setter_calls": [
     {
