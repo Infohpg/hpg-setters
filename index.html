@@ -517,7 +517,7 @@ function teamTotals(metric) {
 function renderCurrentPeriod() {
   const totalLeads = SETTERS.reduce((s,x)=>s+(x.leads||0),0);
   const totalCalls = SETTERS.reduce((s,x)=>s+(x.calls||0),0);
-  const totalAppts = SETTERS.reduce((s,x)=>s+(x.appts||0),0);
+  const totalAppts = (window._TOTAL_APPTS != null) ? window._TOTAL_APPTS : SETTERS.reduce((s,x)=>s+(x.appts||0),0);
   const totalDeals = SETTERS.reduce((s,x)=>s+(x.deals||0),0);
 
   setEl('kl-val', totalLeads || '—');
@@ -828,6 +828,7 @@ function applyData(d) {
     if(el){el.textContent='Act. '+d.updated;el.style.display='inline-block';}
   }
   if (d.goals) GOALS = d.goals;
+  if (d.total_appts != null) window._TOTAL_APPTS = d.total_appts;
   if (d.setter_calls && d.setter_calls.length) {
     SETTERS = d.setter_calls.map(s=>({
       name:s.name, leads:s.leads||0, calls:s.calls||0, appts:s.appts||0,
