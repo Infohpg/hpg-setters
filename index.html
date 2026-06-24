@@ -736,7 +736,7 @@ function buildTeamSparklines() {
   const periods = HIST.periods||[];
   configs.forEach(({key,color,label}) => {
     const data = teamTotals(key);
-    const last = data[data.length-1]||0;
+    const last = (key==='appts' && window._TOTAL_APPTS!=null) ? window._TOTAL_APPTS : (data[data.length-1]||0);
     const _dp = (PERIOD.day||30)/(PERIOD.total_days||30);
     const prev = (data[data.length-2]||0)*_dp;
     setEl(label+'-val', key==='calls'?(last?last.toLocaleString():'—'):fmtNum(last));
