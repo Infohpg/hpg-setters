@@ -1,21 +1,21 @@
 {
-  "updated": "2026-06-24 16:56",
+  "updated": "2026-06-25 08:23",
   "period": {
     "key": "2026-06",
     "label": "15 Junio 2026 ? 15 Julio 2026",
     "short": "Jun-Jul",
-    "day": 10,
+    "day": 11,
     "total_days": 30,
-    "pct": 33
+    "pct": 37
   },
-  "total_appts": 12,
+  "total_appts": null,
   "setter_calls": [
     {
       "name": "Oliver",
-      "leads": 16,
+      "leads": 15,
       "appts": 0,
       "deals": 0,
-      "calls": 693,
+      "calls": 905,
       "meta_appts": 20
     },
     {
@@ -23,15 +23,15 @@
       "leads": 18,
       "appts": 5,
       "deals": 1,
-      "calls": 2704,
+      "calls": 2746,
       "meta_appts": 20
     },
     {
       "name": "Emmanuel",
-      "leads": 55,
+      "leads": 61,
       "appts": 3,
       "deals": 0,
-      "calls": 1597,
+      "calls": 1599,
       "meta_appts": 20
     },
     {
@@ -39,7 +39,7 @@
       "leads": 10,
       "appts": 1,
       "deals": 1,
-      "calls": 3134,
+      "calls": 3222,
       "meta_appts": 20
     },
     {
@@ -47,7 +47,7 @@
       "leads": 0,
       "appts": 0,
       "deals": 0,
-      "calls": 1991,
+      "calls": 2044,
       "meta_appts": 20
     },
     {
@@ -55,7 +55,7 @@
       "leads": 14,
       "appts": 2,
       "deals": 1,
-      "calls": 1518,
+      "calls": 1523,
       "meta_appts": 20
     }
   ],
@@ -76,7 +76,7 @@
           106,
           77,
           98,
-          16
+          15
         ],
         "appts": [
           0,
@@ -100,7 +100,7 @@
           7633,
           5753,
           4162,
-          693
+          905
         ]
       },
       "Silvia": {
@@ -108,14 +108,14 @@
           14,
           30,
           38,
-          33,
+          34,
           111,
           18
         ],
         "appts": [
           0,
           0,
-          1,
+          0,
           19,
           13,
           5
@@ -134,7 +134,7 @@
           7188,
           8040,
           6989,
-          2704
+          2746
         ]
       },
       "Emmanuel": {
@@ -144,7 +144,7 @@
           34,
           38,
           87,
-          55
+          61
         ],
         "appts": [
           0,
@@ -168,7 +168,7 @@
           1537,
           3934,
           3244,
-          1597
+          1599
         ]
       },
       "Pablo": {
@@ -202,7 +202,7 @@
           0,
           2582,
           7355,
-          3134
+          3222
         ]
       },
       "Daniela": {
@@ -236,7 +236,7 @@
           0,
           0,
           2683,
-          1991
+          2044
         ]
       },
       "Alejandro": {
@@ -270,7 +270,7 @@
           0,
           0,
           1513,
-          1518
+          1523
         ]
       }
     }
