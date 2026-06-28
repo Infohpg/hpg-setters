@@ -1,18 +1,18 @@
 {
-  "updated": "2026-06-27 08:23",
+  "updated": "2026-06-28 08:23",
   "period": {
     "key": "2026-06",
     "label": "15 Junio 2026 ? 15 Julio 2026",
     "short": "Jun-Jul",
-    "day": 13,
+    "day": 14,
     "total_days": 30,
-    "pct": 43
+    "pct": 47
   },
   "total_appts": null,
   "setter_calls": [
     {
       "name": "Oliver",
-      "leads": 18,
+      "leads": 19,
       "appts": 0,
       "deals": 0,
       "calls": 1237,
@@ -20,16 +20,16 @@
     },
     {
       "name": "Silvia",
-      "leads": 26,
+      "leads": 31,
       "appts": 6,
       "deals": 1,
-      "calls": 3544,
+      "calls": 3625,
       "meta_appts": 20
     },
     {
       "name": "Emmanuel",
-      "leads": 61,
-      "appts": 3,
+      "leads": 62,
+      "appts": 4,
       "deals": 0,
       "calls": 1851,
       "meta_appts": 20
@@ -52,10 +52,10 @@
     },
     {
       "name": "Alejandro",
-      "leads": 19,
+      "leads": 21,
       "appts": 3,
       "deals": 1,
-      "calls": 1934,
+      "calls": 1975,
       "meta_appts": 20
     }
   ],
@@ -76,7 +76,7 @@
           106,
           77,
           97,
-          18
+          19
         ],
         "appts": [
           0,
@@ -110,7 +110,7 @@
           39,
           34,
           111,
-          26
+          31
         ],
         "appts": [
           0,
@@ -134,7 +134,7 @@
           7188,
           8040,
           6989,
-          3544
+          3625
         ]
       },
       "Emmanuel": {
@@ -144,15 +144,15 @@
           34,
           39,
           87,
-          61
+          62
         ],
         "appts": [
           0,
           0,
-          1,
+          0,
           15,
           11,
-          3
+          4
         ],
         "deals": [
           0,
@@ -246,7 +246,7 @@
           1,
           0,
           23,
-          19
+          21
         ],
         "appts": [
           0,
@@ -270,7 +270,7 @@
           0,
           0,
           1513,
-          1934
+          1975
         ]
       }
     }
